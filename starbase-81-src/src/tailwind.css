@@ -3,23 +3,27 @@
 @tailwind utilities;
 
 html {
-	background-color: theme(colors.slate.50);
+	background-color: rgba(248, 250, 252, 0.9);
+	background-blend-mode: overlay;
+	background-image: url(https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg);
+	background-size: cover;
+	
 }
 
 @media (prefers-color-scheme: dark) {
 	html.auto {
-		background-color: theme(colors.gray.950);
+		background-color: rgba(3, 7, 18, 0.9);
 		color: theme(colors.slate.200);
 	}
 
 	html.dark {
-		background-color: theme(colors.gray.950);
+		background-color: rgba(3, 7, 18, 0.9);
 		color: theme(colors.slate.200);
 	}
 }
 
 html.dark {
-	background-color: theme(colors.gray.950);
+	background-color: rgba(3, 7, 18, 0.9);
 	color: theme(colors.slate.200);
 }
 
@@ -40,15 +44,15 @@ a:focus h3 {
 }
 
 .var-category-bubble-bg {
-	background-color: theme(colors.white); /* category light */
+	background-color: rgba(255, 255, 255, 0.9); /* category light */
 }
 
 @media (prefers-color-scheme: dark) {
 	html.auto .var-category-bubble-bg {
-		background-color: theme(colors.black); /* category dark */
+		background-color: rgba(0, 0, 0, 0.9); /* category dark */
 	}
 
 	html.dark .var-category-bubble-bg {
-		background-color: theme(colors.black); /* category dark */
+		background-color: rgba(0, 0, 0, 0.9); /* category dark */
 	}
 }

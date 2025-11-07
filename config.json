@@ -1,0 +1,50 @@
+[
+  {
+    "category": "Services",
+    "services": [
+      {
+        "name": "Authelia",
+        "uri": "https://auth.mywebsite.com",
+        "description": "Authentication",
+        "icon": "selfhst-authelia"
+      },
+      {
+        "name": "Authelia",
+        "uri": "https://auth.mywebsite.com",
+        "description": "Authentication",
+        "icon": "selfhst-authelia"
+      },
+      {
+        "name": "Authelia",
+        "uri": "hhttps://auth.mywebsite.com",
+        "description": "Authentication",
+        "icon": "selfhst-authelia"
+      }
+    ]
+  },
+  {
+    "category": "Devices",
+    "bubble": true,
+    "services": [
+      {
+        "name": "Authelia",
+        "uri": "https://auth.mywebsite.com",
+        "description": "Authentication",
+        "icon": "selfhst-authelia"
+      },
+      {
+        "name": "Authelia",
+        "uri": "https://auth.mywebsite.com",
+        "description": "Authentication",
+        "icon": "selfhst-authelia",
+        "iconBubble": false
+      },
+      {
+        "name": "Authelia",
+        "uri": "https://auth.mywebsite.com",
+        "description": "Authentication",
+        "icon": "selfhst-authelia"
+      }
+    ]
+  }
+]

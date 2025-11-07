@@ -1,0 +1,61 @@
+# Build site using Node JS
+FROM node:23-slim
+
+# Install nginx and wget
+RUN apt-get update && apt-get install -y nginx wget
+
+ARG BUILD_DATE
+
+LABEL \
+   maintainer="github.com/suckharder" \
+   org.opencontainers.image.authors="github.com/suckharder" \
+   org.opencontainers.image.title="starbase-81" \
+   org.opencontainers.image.description="A nice app grid of icons for Docker services (now with a background image)" \
+   org.opencontainers.image.created=$BUILD_DATE \
+   org.opencontainers.image.stop-timeout=1
+  # ORIGINAL CREATOR AND MAINTAINER
+  # maintainer="Jordan Roher <jordan@notclickable.com>" \
+  # org.opencontainers.image.authors="Jordan Roher <jordan@notclickable.com>" \
+  # org.opencontainers.image.title="starbase-80" \
+  # org.opencontainers.image.description="A nice app grid of icons for Docker services" \
+  # org.opencontainers.image.created=$BUILD_DATE \
+  # org.opencontainers.image.stop-timeout=1
+
+WORKDIR /app
+
+COPY package.json .
+RUN npm i
+
+COPY . .
+
+# Copy the nginx config to the correct folder
+COPY default.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+
+ENV NODE_ENV=production
+
+ENV TITLE="My Website"
+ENV LOGO="/logo.png"
+ENV HEADER="true"
+ENV HEADERLINE="true"
+ENV HEADERTOP="false"
+ENV CATEGORIES="normal"
+ENV BGCOLOR="rgba(248, 250, 252, 0.9)"
+ENV BGCOLORDARK="rgba(3, 7, 18, 0.9)"
+ENV BGIMAGE="url(https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg)"
+ENV CATEGORYBUBBLECOLORLIGHT="rgba(255, 255, 255, 0.9)"
+ENV CATEGORYBUBBLECOLORDARK="rgba(0, 0, 0, 0.9)"
+ENV THEME="auto"
+ENV NEWWINDOW="true"
+ENV HOVER="none"
+
+COPY version /
+EXPOSE 4173
+
+# Add signal handling for faster shutdown
+STOPSIGNAL SIGTERM
+
+RUN chmod +x /app/docker-entrypoint.sh
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
+
+CMD ["nginx", "-g", "daemon off;"]
