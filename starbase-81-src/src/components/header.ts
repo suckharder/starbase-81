@@ -43,6 +43,7 @@ export const Header = function (props: IProps) {
 							let USERNAME = "";
 							let NAME = "";
 							let AVATAR = ""
+							
 							async function authentikAPIfetch() {
 								try {
 
@@ -70,6 +71,7 @@ export const Header = function (props: IProps) {
 								}
 
 								}
+
 							function renderWidget() {
 								if (!ISLOGGEDIN) {
 									document.getElementById('loadingText').style.display = 'none';
@@ -96,11 +98,27 @@ export const Header = function (props: IProps) {
 									}
 								}
 							}
+
 							async function initWidget() {
 								await authentikAPIfetch();
 								renderWidget();
 							}
+
 							document.addEventListener("DOMContentLoaded", initWidget);
+
+							let lastCheck = 0;
+							window.addEventListener("focus", () => {
+								document.getElementById('loadingText').removeAttribute('style');
+								document.getElementById('nlText').style.display = 'none';
+								document.getElementById('nlButt').style.display = 'none';
+								document.getElementById('lImg').style.display = 'none';
+								document.getElementById('lText').style.display = 'none';
+								const now = Date.now();
+								if (now - lastCheck > 2000) {
+									lastCheck = now;
+									initWidget();
+								}
+							});
 						</script>
 					`
 					: ``
