@@ -1,5 +1,5 @@
 # Build site using Node JS
-FROM node:23-slim
+FROM node:lts-slim
 
 # Install nginx and wget
 RUN apt-get update && apt-get install -y nginx wget
@@ -18,8 +18,6 @@ LABEL \
   # org.opencontainers.image.authors="Jordan Roher <jordan@notclickable.com>" \
   # org.opencontainers.image.title="starbase-80" \
   # org.opencontainers.image.description="A nice app grid of icons for Docker services" \
-  # org.opencontainers.image.created=$BUILD_DATE \
-  # org.opencontainers.image.stop-timeout=1
 
 WORKDIR /app
 
@@ -42,12 +40,14 @@ ENV HEADERTOP="false"
 ENV CATEGORIES="normal"
 ENV BGCOLOR="rgba(248, 250, 252, 0.9)"
 ENV BGCOLORDARK="rgba(3, 7, 18, 0.9)"
-ENV BGIMAGE="url(https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg)"
+ENV BGIMAGE="url()"
 ENV CATEGORYBUBBLECOLORLIGHT="rgba(255, 255, 255, 0.9)"
 ENV CATEGORYBUBBLECOLORDARK="rgba(0, 0, 0, 0.9)"
-ENV THEME="auto"
+# ENV THEME="auto"
 ENV NEWWINDOW="true"
 ENV HOVER="none"
+ENV SHOWAUTHWIDGET="false"
+ENV AUTHENTIKURL="auth.example.com"
 
 COPY version /
 EXPOSE 4173

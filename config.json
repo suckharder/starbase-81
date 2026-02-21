@@ -1,49 +1,56 @@
 [
   {
-    "category": "Services",
+    "category": "Category 1",
     "services": [
       {
-        "name": "Authelia",
-        "uri": "https://auth.mywebsite.com",
-        "description": "Authentication",
-        "icon": "selfhst-authelia"
-      },
+				"name": "Original project",
+				"uri": "https://github.com/notclickable-jordan/starbase-80",
+				"description": "Original source and readme by Jordan Roher.",
+				"icon": "selfhst-github",
+        "iconBG": "stone-500",
+        "iconBubble": true
+			},
       {
-        "name": "Authelia",
-        "uri": "https://auth.mywebsite.com",
-        "description": "Authentication",
-        "icon": "selfhst-authelia"
-      },
+				"name": "This project",
+				"uri": "https://github.com/suckharder/starbase-81",
+				"description": "This fork's source code and readme.",
+				"icon": "selfhst-github",
+        "iconBG": "stone-500",
+        "iconBubble": true
+			},
       {
-        "name": "Authelia",
-        "uri": "hhttps://auth.mywebsite.com",
-        "description": "Authentication",
-        "icon": "selfhst-authelia"
+        "name": "Jellyfin",
+        "uri": "https://jellyfin.org",
+        "description": "An awesome self-hosted media server.",
+        "icon": "selfhst-jellyfin",
+        "iconBubble": false
       }
     ]
   },
   {
-    "category": "Devices",
+    "category": "Category 2",
     "bubble": true,
     "services": [
       {
-        "name": "Authelia",
-        "uri": "https://auth.mywebsite.com",
-        "description": "Authentication",
-        "icon": "selfhst-authelia"
-      },
-      {
-        "name": "Authelia",
-        "uri": "https://auth.mywebsite.com",
-        "description": "Authentication",
-        "icon": "selfhst-authelia",
+        "name": "Navidrome",
+        "uri": "https://www.navidrome.org",
+        "description": "An awesome self-hosted music server.",
+        "icon": "selfhst-navidrome",
         "iconBubble": false
       },
       {
-        "name": "Authelia",
-        "uri": "https://auth.mywebsite.com",
-        "description": "Authentication",
-        "icon": "selfhst-authelia"
+        "name": "BentoPDF",
+        "uri": "https://www.bentopdf.com/",
+        "description": "Awesome self-hosted PDF tools.",
+        "icon": "selfhst-bentopdf",
+        "iconBubble": false
+      },
+      {
+        "name": "Authentik",
+        "uri": "https://goauthentik.io",
+        "description": "An awesome self-hosted auth solution.",
+        "icon": "selfhst-authentik",
+        "iconBubble": false
       }
     ]
   }

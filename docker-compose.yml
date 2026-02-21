@@ -1,29 +1,34 @@
 services:
-    starbase80:
+    starbase-81:
         build: ./starbase-81-src
+        image: suckharder/starbase-81:preview
+        container_name: starbase-81
         ports:
             - 80:4173
         environment:
             - TITLE=Starbase 81
             - LOGO=/logo.png
-            - BGIMAGE=url(https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg)
-          # 
+            - BGIMAGE=url(/background.jpg)
           # ALL ENVIRONMENTAL VARIABLES - prefilled with default values
           # 
-          # - BGCOLORDARK=rgba(3, 7, 18, 0.6)
-          # - HEADER="true"
-          # - HEADERLINE="true"
-          # - HEADERTOP="false"
-          # - CATEGORIES="normal"
-          # - BGCOLOR="rgba(248, 250, 252, 0.9)"
-          # - BGCOLORDARK="rgba(3, 7, 18, 0.9)"
-          # - CATEGORYBUBBLECOLORLIGHT="rgba(255, 255, 255, 0.9)"
-          # - CATEGORYBUBBLECOLORDARK="rgba(0, 0, 0, 0.9)"
-          # - THEME="auto"
-          # - NEWWINDOW="true"
-          # - HOVER="none"
+          # - TITLE=Starbase 81
+          # - LOGO=/logo.png
+          # - HEADER=true
+          # - HEADERLINE=true
+          # - HEADERTOP=false
+          # - CATEGORIES=normal
+          # - BGCOLOR=rgba(248, 250, 252, 0.9)
+          # - BGCOLORDARK=rgba(3, 7, 18, 0.9)
+          # - BGIMAGE=url()
+          # - CATEGORYBUBBLECOLORLIGHT=rgba(255, 255, 255, 0.9)
+          # - CATEGORYBUBBLECOLORDARK=rgba(0, 0, 0, 0.9)
+          # - NEWWINDOW=true
+          # - HOVER=none
+          # - SHOWAUTHWIDGET=false
+          # - AUTHENTIKURL=auth.example.com
         volumes:
             - ./config.json:/app/src/config/config.json
             - ./public/favicon.ico:/app/public/favicon.ico
             - ./public/logo.png:/app/public/logo.png
+            - ./public/background.jpg:/app/public/background.jpg
             - ./public/icons:/app/public/icons

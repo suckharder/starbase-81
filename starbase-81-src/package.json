@@ -1,11 +1,11 @@
 {
-	"name": "starbase-80",
-	"displayName": "Starbase 80",
-	"homepage": "https://www.starbase80.dev/",
+	"name": "starbase-81",
+	"displayName": "Starbase 81",
+	"homepage": "https://https://github.com/suckharder/starbase-81/",
 	"repository": {
-		"url": "https://github.com/notclickable-jordan/starbase-80/"
+		"url": "https://https://github.com/suckharder/starbase-81/"
 	},
-	"version": "1.6.4",
+	"version": "preview",
 	"type": "commonjs",
 	"scripts": {
 		"build": "tsc && node ./dist/index.js && npm run html && npm run tailwind && npm run css-cache-break",

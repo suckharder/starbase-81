@@ -24,7 +24,7 @@ export const IndexPage = function (props: IProps): string {
 	}
 
 	if (SHOWHEADERLINE) {
-		headerClassName += "border-0 border-solid border-gray-300 dark:border-gray-700";
+		headerClassName += " border-0 border-solid border-gray-300 dark:border-gray-700";
 
 		if (SHOWHEADERTOP) {
 			headerClassName += " border-b";

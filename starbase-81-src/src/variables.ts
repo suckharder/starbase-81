@@ -6,3 +6,5 @@ export const SHOWHEADERTOP = false;
 export const CATEGORIES = "normal";
 export const THEME = "auto";
 export const NEWWINDOW = true;
+export const SHOWAUTHWIDGET = false;
+export const AUTHENTIKURL = "auth.example.com";
