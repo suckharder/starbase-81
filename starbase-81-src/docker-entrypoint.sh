@@ -32,7 +32,7 @@ sed -i -e 's/SHOWHEADERTOP = false/SHOWHEADERTOP = '"${HEADERTOP}"'/g' /app/src/
 sed -i -e 's/CATEGORIES = "normal"/CATEGORIES = "'"${CATEGORIES}"'"/g' /app/src/variables.ts
 sed -i -e 's/NEWWINDOW = true/NEWWINDOW = '"${NEWWINDOW}"'/g' /app/src/variables.ts
 sed -i -e 's/SHOWAUTHWIDGET = false/SHOWAUTHWIDGET = '"${SHOWAUTHWIDGET}"'/g' /app/src/variables.ts
-sed -i -e 's/AUTHENTIKURL = "auth.example.com"/PAGETITLE = "'"${AUTHENTIKURL}"'"/g' /app/src/variables.ts
+sed -i -e 's/AUTHENTIKURL = "auth.example.com"/AUTHENTIKURL = "'"${AUTHENTIKURL}"'"/g' /app/src/variables.ts
 
 # CSS replacement
 sed -i -e 's/background-color: rgba(248, 250, 252, 0\.9)/background-color: '"${BGCOLOR}"'/g' /app/src/tailwind.css

@@ -26,6 +26,7 @@ services:
           # - HOVER=none
           # - SHOWAUTHWIDGET=false
           # - AUTHENTIKURL=auth.example.com
+        restart: unless-stopped
         volumes:
             - ./config.json:/app/src/config/config.json
             - ./public/favicon.ico:/app/public/favicon.ico

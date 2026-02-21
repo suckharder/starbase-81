@@ -1,4 +1,4 @@
-# Starbase-81 (Modified Fork of Starbase-80)
+# Starbase-81
 
 > ⚠️ Note: This project is **not really finished**, **not thoroughly tested**, and there are **no guarantees of maintenance**.
 
