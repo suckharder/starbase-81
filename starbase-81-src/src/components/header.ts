@@ -46,7 +46,7 @@ export const Header = function (props: IProps) {
 							async function authentikAPIfetch() {
 								try {
 
-									const response = await fetch(${auth_url}, {method: "GET", headers: { "Accept": "application/json" }, credentials: "include"});
+									const response = await fetch("${auth_url}", {method: "GET", headers: { "Accept": "application/json" }, credentials: "include"});
 
 									if (!response.ok) {
 									ISLOGGEDIN = false;
