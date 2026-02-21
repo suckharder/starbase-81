@@ -73,7 +73,7 @@ export const Header = function (props: IProps) {
 							function renderWidget() {
 								if (!ISLOGGEDIN) {
 									document.getElementById('loadingText').style.display = 'none';
-									document.getElementById('nlTextt').removeAttribute('style');
+									document.getElementById('nlText').removeAttribute('style');
 									document.getElementById('nlButt').removeAttribute('style');
 								}
 								else {
