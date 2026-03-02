@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-	background-color: rgba(248, 250, 252, 0.9);
+	background-color: rgba(248, 250, 252, 0.8);
 	background-blend-mode: overlay;
 	background-image: url();
 	background-size: cover;
@@ -12,18 +12,18 @@ html {
 
 @media (prefers-color-scheme: dark) {
 	html.auto {
-		background-color: rgba(3, 7, 18, 0.9);
+		background-color: rgba(3, 7, 18, 0.8);
 		color: theme(colors.slate.200);
 	}
 
 	html.dark {
-		background-color: rgba(3, 7, 18, 0.9);
+		background-color: rgba(3, 7, 18, 0.8);
 		color: theme(colors.slate.200);
 	}
 }
 
 html.dark {
-	background-color: rgba(3, 7, 18, 0.9);
+	background-color: rgba(3, 7, 18, 0.8);
 	color: theme(colors.slate.200);
 }
 
@@ -44,15 +44,19 @@ a:focus h3 {
 }
 
 .var-category-bubble-bg {
-	background-color: rgba(255, 255, 255, 0.9); /* category light */
+	background-color: rgba(255, 255, 255, 0.6); /* category light */
+}
+
+.var-category-bubble-bg-forcedark {
+	background-color: rgba(0, 0, 0, 0.6); /* category dark */
 }
 
 @media (prefers-color-scheme: dark) {
 	html.auto .var-category-bubble-bg {
-		background-color: rgba(0, 0, 0, 0.9); /* category dark */
+		background-color: rgba(0, 0, 0, 0.6); /* category dark */
 	}
 
 	html.dark .var-category-bubble-bg {
-		background-color: rgba(0, 0, 0, 0.9); /* category dark */
+		background-color: rgba(0, 0, 0, 0.6); /* category dark */
 	}
 }

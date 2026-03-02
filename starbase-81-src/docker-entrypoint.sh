@@ -42,10 +42,12 @@ sed -i -e 's/background-color: rgba(255, 255, 255, 0\.9)\; \/\* category light \
 sed -i -e 's/background-color: rgba(0, 0, 0, 0\.9)\; \/\* category dark \*\//background-color: '"${CATEGORYBUBBLECOLORDARK}"\;'/g' /app/src/tailwind.css
 
 # Light/dark theme
-# if [ "$THEME" = "dark" ]; then sed -i -e 's/darkMode: "media"/darkMode: "selector"/g' /app/tailwind.config.js; fi
-# if [ "$THEME" = "dark" ]; then sed -i -e 's/<html class="auto"/<html class="dark"/' /app/index.html; fi
-# if [ "$THEME" = "light" ]; then sed -i -e 's/darkMode: "media"/darkMode: "selector"/g' /app/tailwind.config.js; fi
-# if [ "$THEME" = "light" ]; then sed -i -e 's/<html class="auto"/<html class="light"/' /app/index.html; fi
+if [ "$THEME" = "dark" ]; then sed -i -e 's/darkMode: "media"/darkMode: "selector"/g' /app/tailwind.config.js; fi
+if [ "$THEME" = "dark" ]; then sed -i -e 's/<html class="auto"/<html class="dark"/' /app/index.html; fi
+if [ "$THEME" = "dark" ]; then sed -i -e 's/THEME = "auto"/THEME = "dark"/g' /app/src/variables.ts; fi
+if [ "$THEME" = "light" ]; then sed -i -e 's/darkMode: "media"/darkMode: "selector"/g' /app/tailwind.config.js; fi
+if [ "$THEME" = "light" ]; then sed -i -e 's/<html class="auto"/<html class="light"/' /app/index.html; fi
+if [ "$THEME" = "light" ]; then sed -i -e 's/THEME = "auto"/THEME = "light"/g' /app/src/variables.ts; fi
 
 # Hover effect
 if [ "$HOVER" = "underline" ]; then sed -i -e 's/@apply no-underline;/@apply underline;/g' /app/src/tailwind.css; fi

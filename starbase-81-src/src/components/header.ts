@@ -1,5 +1,16 @@
 import { is } from "../shared/is";
 import { SHOWAUTHWIDGET, AUTHENTIKURL } from "../variables";
+import { THEME } from "../variables";
+
+// Theme forcing fix - if theme is always light/dark, disregard OS/browser settings
+let authWidgetClass = "";
+if ((THEME as string) === "auto"){authWidgetClass += "mx-auto mt-2 basis-full max-w-[80vw] flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10";}
+if ((THEME as string) === "light"){authWidgetClass += "mx-auto mt-2 basis-full max-w-[80vw] flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-white";}
+if ((THEME as string) === "dark"){authWidgetClass += "mx-auto mt-2 basis-full max-w-[80vw] flex max-w-sm items-center gap-x-4 rounded-xl bg-slate-800 p-6 outline dark:bg-slate-800 shadow-none -outline-offset-1 outline-white/10";}
+let TextClass = "";
+if ((THEME as string) === "auto"){TextClass += "text-gray-700 dark:text-slate-100";}
+if ((THEME as string) === "light"){TextClass += "text-gray-700 dark:text-gray-700";}
+if ((THEME as string) === "dark"){TextClass += "text-slate-100 dark:text-slate-100";}
 
 let auth_url = "https://" + AUTHENTIKURL + "/api/v3/core/users/me/";
 let auth_login = "https://" + AUTHENTIKURL;
@@ -22,18 +33,18 @@ export const Header = function (props: IProps) {
 			${
 				SHOWAUTHWIDGET
 					? `
-						<div id="auth-widget" class="mx-auto mt-2 basis-full max-w-[80vw] flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
+						<div id="auth-widget" class="${authWidgetClass}">
 
-							<p id="loadingText" class="text-gray-700 dark:text-slate-100">Loading...</p>
+							<p id="loadingText" class="${TextClass}">Loading...</p>
 
-							<p id="nlText" class="text-gray-700 dark:text-slate-100" style="display: none;">Authentik: Not logged in</p>
+							<p id="nlText" class="${TextClass}" style="display: none;">Authentik: Not logged in</p>
 							<button id="nlButt" class="bg-indigo-800 text-white px-3 py-1 rounded hover:bg-indigo-500" onclick="window.open('${auth_login}', '_blank')" style="display: none;">
 								Login
 							</button>
 
 							<img id="lImg" src="/default_avatar.jpg" alt="Avatar" class="w-8 h-8 rounded-full" style="display: none;"/>
 
-							<p id="lText" class="text-gray-700 dark:text-slate-100 font-medium" style="display: none;">
+							<p id="lText" class="${TextClass} font-medium" style="display: none;">
 								Logged in as:
 							</p>				
 
@@ -126,42 +137,3 @@ export const Header = function (props: IProps) {
 		</div>
 	`;
 };
-
-
-// old
-
-/* <div id="auth-widget" class="mx-auto mt-2 basis-full max-w-[80vw] flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-							${
-								ISLOGGEDIN
-									? `
-										${
-											AVATAR
-												? `
-													<img src="${AVATAR}" alt="Avatar" class="w-8 h-8 rounded-full" />
-												`
-												: `
-													<img src="/default_avatar.jpg" alt="Avatar" class="w-8 h-8 rounded-full" />
-												`
-										}
-										${
-											NAME
-												? `
-													<p class="text-gray-700 dark:text-slate-100 font-medium">
-														Logged in as: ${NAME}
-													</p>
-												`
-												: `
-													<p class="text-gray-700 dark:text-slate-100 font-medium">
-														Logged in as: ${USERNAME}
-													</p>
-												`
-										}
-									`
-									: `
-										<span class="text-gray-700 dark:text-slate-100">Authentik: Not logged in</span>
-										<button class="bg-indigo-800 text-white px-3 py-1 rounded hover:bg-indigo-500" onclick="window.open('${auth_login}', '_blank')" >
-											Login
-										</button>
-									`
-							}
-</div> */

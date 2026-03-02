@@ -2,6 +2,13 @@ import { is } from "../shared/is";
 import { IService } from "../shared/types";
 import { Anchor } from "./anchor";
 import { Icon } from "./icon";
+import { THEME } from "../variables";
+
+// Theme forcing fix - if theme is always light/dark, disregard OS/browser settings
+let descTextClass = "";
+if ((THEME as string) === "auto"){descTextClass += "text-sm text-black/50 dark:text-white/50 line-clamp-1";}
+if ((THEME as string) === "light"){descTextClass += "text-sm text-black/50 dark:text-black/50 line-clamp-1";}
+if ((THEME as string) === "dark"){descTextClass += "text-sm text-white/50 dark:text-white/50 line-clamp-1";}
 
 interface IServicesProps {
 	services: IService[];
@@ -69,7 +76,7 @@ function Service(props: IServiceProps) {
 			}
 		<div>
 			<h3 class="text-lg mt-1 font-semibold line-clamp-1">${name}</h3>
-			${!is.null(description) ? `<p class="text-sm text-black/50 dark:text-white/50 line-clamp-1">${description}</p>` : ``}
+			${!is.null(description) ? `<p class="${descTextClass}">${description}</p>` : ``}
 		</div>`,
 		})}
 			

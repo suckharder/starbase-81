@@ -137,16 +137,12 @@ add_header 'Access-Control-Allow-Credentials' 'true' always;
 
 ## Other Notable Changes
 
-### Theme Forcing
-
-* Temporarily disabled. Theme now always follows browser/OS settings. I forgot about this while making the Authentik widget, and hard-coded the Tailwind classes.
-
 ### Color Syntax
 
 * All the colors that are changeable with environmental variables now follow now use **RGBA syntax**:
 
 ```env
-BGCOLORDARK=rgba(3, 7, 18, 0.9)
+BGCOLORDARK=rgba(3, 7, 18, 0.8)
 ```
 
 ---

@@ -17,11 +17,12 @@ services:
           # - HEADERLINE=true
           # - HEADERTOP=false
           # - CATEGORIES=normal
-          # - BGCOLOR=rgba(248, 250, 252, 0.9)
-          # - BGCOLORDARK=rgba(3, 7, 18, 0.9)
+          # - THEME=auto
+          # - BGCOLOR=rgba(248, 250, 252, 0.8)
+          # - BGCOLORDARK=rgba(3, 7, 18, 0.8)
           # - BGIMAGE=url()
-          # - CATEGORYBUBBLECOLORLIGHT=rgba(255, 255, 255, 0.9)
-          # - CATEGORYBUBBLECOLORDARK=rgba(0, 0, 0, 0.9)
+          # - CATEGORYBUBBLECOLORLIGHT=rgba(255, 255, 255, 0.6)
+          # - CATEGORYBUBBLECOLORDARK=rgba(0, 0, 0, 0.6)
           # - NEWWINDOW=true
           # - HOVER=none
           # - SHOWAUTHWIDGET=false
