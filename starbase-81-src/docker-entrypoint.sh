@@ -19,9 +19,17 @@ trap cleanup TERM INT QUIT
 # Escape slashes
 LOGO=$(echo "${LOGO}" | sed 's/\//\\\//g')
 
+# PWA files
+if [ "$PWA" = "true" ]; then cp ./pwa/service-worker.js /app/public/service-worker.js; fi
+if [ "$PWA" = "true" ]; then cp ./pwa/manifest.json /app/public/manifest.json; fi
+if [ "$PWA" = "true" ]; then sed -i 's|"name": "Starbase 81"|"name": "'"${TITLE}"'"|g' /app/public/manifest.json; fi
+if [ "$PWA" = "true" ]; then sed -i 's|"theme_color": "#003478"|"theme_color": "'"${PWA_THEME}"'"|g' /app/public/manifest.json; fi
+
 # HTML replacement
 sed -i -e 's/My Website/'"${TITLE}"'/g' /app/index.html
 sed -i -e 's/\/logo\.png/'"${LOGO}"'/g' /app/index.html
+if [ "$PWA" = "true" ]; then sed -i "s|<!-- PWA_PLACEHOLDER -->|<link rel=\"manifest\" href=\"/manifest.json\"><meta name=\"theme-color\" content=\"${PWA_THEME}\">|g" /app/index.html; fi
+if [ "$PWA" = "true" ]; then sed -i "s|<!-- PWA_SCRIPT_PLACEHOLDER -->|<script>if ('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/service-worker.js').then(reg => console.log('Service Worker registered', reg)).catch(err => console.error('Service Worker registration failed', err));});}</script>|g" /app/index.html; fi
 
 # TypeScript replacement
 sed -i -e 's/PAGETITLE = "My Website"/PAGETITLE = "'"${TITLE}"'"/g' /app/src/variables.ts
@@ -30,9 +38,10 @@ sed -i -e 's/SHOWHEADER = true/SHOWHEADER = '"${HEADER}"'/g' /app/src/variables.
 sed -i -e 's/SHOWHEADERLINE = true/SHOWHEADERLINE = '"${HEADERLINE}"'/g' /app/src/variables.ts
 sed -i -e 's/SHOWHEADERTOP = false/SHOWHEADERTOP = '"${HEADERTOP}"'/g' /app/src/variables.ts
 sed -i -e 's/CATEGORIES = "normal"/CATEGORIES = "'"${CATEGORIES}"'"/g' /app/src/variables.ts
-sed -i -e 's/NEWWINDOW = true/NEWWINDOW = '"${NEWWINDOW}"'/g' /app/src/variables.ts
+if [ "$PWA" = "false" ]; then sed -i -e 's/NEWWINDOW = false/NEWWINDOW = '"${NEWWINDOW}"'/g' /app/src/variables.ts; fi
 sed -i -e 's/SHOWAUTHWIDGET = false/SHOWAUTHWIDGET = '"${SHOWAUTHWIDGET}"'/g' /app/src/variables.ts
 sed -i -e 's/AUTHENTIKURL = "auth.example.com"/AUTHENTIKURL = "'"${AUTHENTIKURL}"'"/g' /app/src/variables.ts
+if [ "$PWA" = "true" ]; then sed -i -e 's/PWA = false/PWA = true/g' /app/src/variables.ts; fi
 
 # CSS replacement
 sed -i -e 's/background-color: rgba(248, 250, 252, 0\.9)/background-color: '"${BGCOLOR}"'/g' /app/src/tailwind.css

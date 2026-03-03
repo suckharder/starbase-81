@@ -1,8 +1,15 @@
 import CleanCSS from "clean-css";
 import * as path from "path";
 import { sbMakeFolder, sbReadFile, sbRemoveAllCSS, sbWriteFile } from "./shared/files";
+import { PWA } from "./variables"
 
-const mainCSSFilename = `main.${new Date().getTime()}.css`;
+// PWA functionality disables cache breaking
+let suffix = String(new Date().getTime());
+if (PWA){
+	suffix = "static";
+}
+
+const mainCSSFilename = `main.${suffix}.css`;
 
 const cssFilePath = path.join(__dirname, "../public/css");
 const cssFileInPath = path.join(__dirname, "../public", "main.css");

@@ -27,6 +27,8 @@ services:
           # - HOVER=none
           # - SHOWAUTHWIDGET=false
           # - AUTHENTIKURL=auth.example.com
+          # - PWA=false
+          # - PWA_THEME=#003478
         restart: unless-stopped
         volumes:
             - ./config.json:/app/src/config/config.json

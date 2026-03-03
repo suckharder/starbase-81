@@ -48,6 +48,8 @@ ENV NEWWINDOW="true"
 ENV HOVER="none"
 ENV SHOWAUTHWIDGET="false"
 ENV AUTHENTIKURL="auth.example.com"
+ENV PWA="false"
+ENV PWA_THEME="#003478"
 
 COPY version /
 EXPOSE 4173

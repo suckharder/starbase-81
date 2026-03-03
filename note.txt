@@ -1,0 +1,6 @@
+
+
+
+If using a custom logo, enabling PWA requires a 512x512 PNG.
+
+pwa overrides NEWWINDOW

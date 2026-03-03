@@ -1,6 +1,10 @@
 import { is } from "../shared/is";
 import { SHOWAUTHWIDGET, AUTHENTIKURL } from "../variables";
 import { THEME } from "../variables";
+import { NEWWINDOW } from "../variables";
+
+let windowMode = "_self";
+if (NEWWINDOW){windowMode = "_blank";}
 
 // Theme forcing fix - if theme is always light/dark, disregard OS/browser settings
 let authWidgetClass = "";
@@ -38,7 +42,7 @@ export const Header = function (props: IProps) {
 							<p id="loadingText" class="${TextClass}">Loading...</p>
 
 							<p id="nlText" class="${TextClass}" style="display: none;">Authentik: Not logged in</p>
-							<button id="nlButt" class="bg-indigo-800 text-white px-3 py-1 rounded hover:bg-indigo-500" onclick="window.open('${auth_login}', '_blank')" style="display: none;">
+							<button id="nlButt" class="bg-indigo-800 text-white px-3 py-1 rounded hover:bg-indigo-500" onclick="window.open('${auth_login}', '${windowMode}')" style="display: none;">
 								Login
 							</button>
 

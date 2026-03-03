@@ -1,6 +1,6 @@
 # Starbase-81
 
-> ⚠️ Note: This project is **not really finished**, **not thoroughly tested**, and there are **no guarantees of maintenance**.
+> ⚠️ Note: This project is **not thoroughly tested**, and there are **no guarantees of maintenance**.
 
 A modified fork of [Starbase-80](https://github.com/notclickable-jordan/starbase-80) — a sleek, fast-loading homepage for Docker containers, services, and links.
 
@@ -62,14 +62,12 @@ BGIMAGE=url(/background.jpg)
 ```
 
 * You can simply replace `background.jpg` inside `./public`.
-* If you wish to rename or something, simply change the value:
-
-```env
-BGIMAGE=url(/myimage.png)
-```
+* Use a .jpg format, do NOT rename, url(/background.jpg) is ALWAYS expected!
 
 > ⚠️ Must mount the image as a Docker volume:
-> `./public/myimage.jpg:/app/public/background.jpg`
+> `./public/background.jpg:/app/public/background.jpg`
+
+If you must use a different image name for some reason, leave `BGIMAGE=url(/background.jpg)` as is and, change the mount `./public/myimage.jpg:/app/public/background.jpg`. This might work, but I did not test it.
 
 ### Online Image
 
