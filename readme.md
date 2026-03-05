@@ -10,6 +10,8 @@ It's a fast and simple dashboard/homepage for your links or self-hosted services
 
 ## 🖼️  Preview
 
+### [Live demo](https://suckharder.github.io/sb81-demo/)
+
 ![Mobile preview image](img-preview/mobile.png)
 ![Desktop preview image](img-preview/desktop.png)
 ---
