@@ -10,8 +10,8 @@ It's a fast and simple dashboard/homepage for your links or self-hosted services
 
 ## 🖼️  Preview
 
-### [Live demo](https://suckharder.github.io/sb81-demo/)
-**[Source code](https://github.com/suckharder/sb81-demo)**, Dark-mode: *forced*, Background image: *on*, PWA: *on*, Authentik widget: *demo (static) mode*.
+### [-->Live demo<--](https://suckharder.github.io/sb81-demo/)
+**[->Demo source code<-](https://github.com/suckharder/sb81-demo)**, Dark-mode: *forced*, Background image: *on*, PWA: *on*, Authentik widget: *demo (static) mode*.
 
 ![Mobile preview image](img-preview/mobile.png)
 ![Desktop preview image](img-preview/desktop.png)
